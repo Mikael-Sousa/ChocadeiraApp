@@ -1,4 +1,3 @@
-// server.js
 import express from "express";
 import http from "http";
 import { Server } from "socket.io";
@@ -19,8 +18,6 @@ parser.on("data", (data) => {
     console.error("Erro ao ler JSON:", err);
   }
 });
-
-app.use(express.static("public"));
 
 server.listen(4444, () => {
   console.log("Servidor rodando em http://localhost:4444");
