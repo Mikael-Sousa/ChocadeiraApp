@@ -14,8 +14,7 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 8,
         borderRadius: 8,
         borderColor: COLORS.primary,
-        borderWidth: 2,
-        
+        borderWidth: 2
     },
 
     title: {

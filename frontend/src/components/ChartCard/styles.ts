@@ -14,9 +14,6 @@ export const styles = StyleSheet.create({
     marginVertical: 8,
     width: "60%",
     alignSelf: "center",
-    shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
     elevation: 5,
   },
 

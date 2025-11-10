@@ -12,7 +12,7 @@ export default function ChartCard() {
           datasets: [{ data: [36.5, 37.0, 37.2, 37.5, 37.4, 37.8] }],
         }}
         {...chartProps}
-        style={styles.chart} // 🔹 centraliza visualmente
+        style={styles.chart}
       />
     </View>
   );
