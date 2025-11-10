@@ -10,9 +10,9 @@ export default function Navbar() {
 
      type IconName = 
         | "home"
-        | "search"
+        | "stats-chart"
         | "notifications"
-        | "settings"
+        | "thermometer"
         | "person";
 
     type Item = {
@@ -22,9 +22,9 @@ export default function Navbar() {
 
 const list: Item[] = [
     { icon: "home", route: "/" },
-    { icon: "search", route: "/search" },
+    { icon: "stats-chart", route: "/search" },
+    { icon: "thermometer", route: "/settings" },
     { icon: "notifications", route: "/notifications" },
-    { icon: "settings", route: "/settings" },
     { icon: "person", route: "/profile" },
 ];
 
