@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { COLORS } from "@/src/theme/styles";
+import { COLORS, FONTS } from "@/src/theme/styles";
 
 export const styles = StyleSheet.create({
   navbar: {
@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
     bottom: 0,       
   },
   icon: {
-    fontSize: 28,
+    fontSize: FONTS.fontSize3,
     color: COLORS.primary,
   },
 });

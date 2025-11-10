@@ -29,7 +29,7 @@ return (
             <View style={styles.content} key={index}>
                 <Ionicons name={item.icon} style={styles.icon}/>
                 <Text style={styles.title}>{item.title}</Text>
-                <Text style={styles.title}>{item.status}</Text>
+                <Text style={styles.status}>{item.status}</Text>
             </View>
         ))}
     </View>
