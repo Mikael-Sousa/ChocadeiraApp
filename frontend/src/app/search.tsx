@@ -4,7 +4,7 @@ import { View, StyleSheet } from "react-native";
 import { useFonts, Inter_400Regular, Inter_700Bold } from "@expo-google-fonts/inter";
 import * as SplashScreen from "expo-splash-screen";
 import Navbar from "../components/Navbar";
-import InfoCard from '../components/InfoCard';
+import InfoCard, { Item } from '../components/InfoCard';
 import InfoHeader from "../components/InfoHeader"
 
 SplashScreen.preventAutoHideAsync();
@@ -21,32 +21,20 @@ export default function App() {
 
   if (!fontsLoaded) return null;
 
-  type IconName =
-        | "thermometer"
-        | "water"
-        | "cloud";
-
-    type Item = {
-        icon: IconName;
-        title: string;
-        status: string;
-    };
-
-    const list: Item[] = [
-        { icon: "thermometer", title: "Tempo Ligado", status: "02:00 hrs" },
-        { icon: "water", title: "Tempo Estimado Da Eclosao", status: "3 dias" },
-        { icon: "cloud", title: "Quantidade de Giros", status: "37,5 °C" },
-        { icon: "cloud", title: "Estado da porta", status: "37,5 °C" },
-        { icon: "cloud", title: "Data Prevista", status: "37,5 °C" },
-
-    ];
+  const list: Item[] = [
+    { icon: "time-outline", title: "Tempo Ligado", status: "", hiddenStatus: "02:00" },
+    { icon: "hourglass-outline", title: "Tempo p/ a Eclosão", status: "", hiddenStatus: "20 dias"},
+    { icon: "sync-outline", title: "Quantidade de Giros", status: "", hiddenStatus: "6/dia"},
+    { icon: "lock-open-outline", title: "Estado da Porta", status: "", hiddenStatus: "aberta"},
+    { icon: "calendar-outline", title: "Data Prevista", status: "", hiddenStatus: "01/01/2026"},
+  ];
 
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.container} edges={["top", "bottom"]} onLayout={onLayoutRootView}>
         <View style={styles.content}>
           <InfoHeader />
-          <InfoCard data={list}/>
+          <InfoCard data={list} />
           <Navbar />
         </View>
       </SafeAreaView>

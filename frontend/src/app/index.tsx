@@ -2,7 +2,6 @@ import React, { useCallback } from "react";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { View, StyleSheet } from "react-native";
 import Navbar from "../components/Navbar";
-import InfoCard from '../components/InfoCard';
 import StatusHeader from '../components/StatusHeader';
 import { useFonts, Inter_400Regular, Inter_700Bold } from "@expo-google-fonts/inter";
 import * as SplashScreen from "expo-splash-screen";
@@ -25,7 +24,6 @@ export default function App() {
       <SafeAreaView style={styles.container} edges={["top", "bottom"]} onLayout={onLayoutRootView}>
         <View style={styles.content}>
           <StatusHeader />
-          <InfoCard />
           <Navbar />
         </View>
       </SafeAreaView>
