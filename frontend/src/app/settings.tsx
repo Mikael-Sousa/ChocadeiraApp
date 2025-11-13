@@ -4,8 +4,8 @@ import { View, StyleSheet } from "react-native";
 import { useFonts, Inter_400Regular, Inter_700Bold } from "@expo-google-fonts/inter";
 import * as SplashScreen from "expo-splash-screen";
 import Navbar from "../components/Navbar";
-import InfoCard, {Item} from '../components/InfoCard';
-import StatusHeader from '../components/StatusHeader';
+import InfoCard, { Item } from "../components/InfoCard";
+import StatusHeader from "../components/StatusHeader";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -21,16 +21,19 @@ export default function App() {
 
   if (!fontsLoaded) return null;
 
-
   const list: Item[] = [
     { icon: "thermometer", title: "Umidade", status: "37,5 °C", hiddenStatus: "" },
-    { icon: "water", title: "Temp. Água", status: "37,5 °C", hiddenStatus: "" },
-    { icon: "cloud", title: "Temp. Ar", status: "37,5 °C", hiddenStatus: "" },
-  ]
+    { icon: "water", title: "Temp. da Agua", status: "45%", hiddenStatus: "" },
+    { icon: "weather-windy", title: "Temp. do Ar", status: "37,2 °C", hiddenStatus: "" },
+  ];
 
   return (
     <SafeAreaProvider>
-      <SafeAreaView style={styles.container} edges={["top", "bottom"]} onLayout={onLayoutRootView}>
+      <SafeAreaView
+        style={styles.container}
+        edges={["top", "bottom"]}
+        onLayout={onLayoutRootView}
+      >
         <View style={styles.content}>
           <StatusHeader />
           <InfoCard data={list} />
@@ -40,7 +43,6 @@ export default function App() {
     </SafeAreaProvider>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -54,4 +56,3 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 });
-

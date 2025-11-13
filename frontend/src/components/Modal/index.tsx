@@ -3,18 +3,8 @@ import { Modal, View, Text, Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { styles } from "./styles";
 
-export type IconName =
-  | "thermometer"
-  | "water"
-  | "time-outline"
-  | "hourglass-outline"
-  | "sync-outline"
-  | "lock-open-outline"
-  | "calendar-outline"
-  | "cloud";
 
 export type Item = {
-  icon: IconName;
   title: string;
   status: string;
   hiddenStatus: string;
@@ -40,6 +30,7 @@ export default function AppModal({ visible, setVisible, data, selectedItem }: Pr
           <View style={styles.modalView}>
             <Text style={styles.modalTitle}>{data[selectedItem].title}</Text>
             <Text style={styles.modalValue}>{data[selectedItem].hiddenStatus}</Text>
+            <Text style={styles.modalValue}>{data[selectedItem].status}</Text>
             <Pressable style={styles.closeButton} onPress={() => setVisible(false)}>
               <Ionicons name="close" style={styles.icon} />
             </Pressable>

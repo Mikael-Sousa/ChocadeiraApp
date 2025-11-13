@@ -4,8 +4,8 @@ import { View, StyleSheet } from "react-native";
 import { useFonts, Inter_400Regular, Inter_700Bold } from "@expo-google-fonts/inter";
 import * as SplashScreen from "expo-splash-screen";
 import Navbar from "../components/Navbar";
-import InfoCard, { Item } from '../components/InfoCard';
-import InfoHeader from "../components/InfoHeader"
+import InfoCard, { Item } from "../components/InfoCard";
+import InfoHeader from "../components/InfoHeader";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -22,16 +22,45 @@ export default function App() {
   if (!fontsLoaded) return null;
 
   const list: Item[] = [
-    { icon: "time-outline", title: "Tempo Ligado", status: "", hiddenStatus: "02:00" },
-    { icon: "hourglass-outline", title: "Tempo p/ a Eclosão", status: "", hiddenStatus: "20 dias"},
-    { icon: "sync-outline", title: "Quantidade de Giros", status: "", hiddenStatus: "6/dia"},
-    { icon: "lock-open-outline", title: "Estado da Porta", status: "", hiddenStatus: "aberta"},
-    { icon: "calendar-outline", title: "Data Prevista", status: "", hiddenStatus: "01/01/2026"},
+    {
+      icon: "clock-outline",
+      title: "Tempo Ligado",
+      status: "",
+      hiddenStatus: "02:00",
+    },
+    {
+      icon: "egg-outline",
+      title: "Tempo p/ Eclosão",
+      status: "",
+      hiddenStatus: "20 dias",
+    },
+    {
+      icon: "sync",
+      title: "Giros Diários",
+      status: "",
+      hiddenStatus: "6/dia",
+    },
+    {
+      icon: "door-open",
+      title: "Estado da Porta",
+      status: "",
+      hiddenStatus: "Aberta",
+    },
+    {
+      icon: "calendar-month-outline",
+      title: "Data Prevista",
+      status: "",
+      hiddenStatus: "01/01/2026",
+    },
   ];
 
   return (
     <SafeAreaProvider>
-      <SafeAreaView style={styles.container} edges={["top", "bottom"]} onLayout={onLayoutRootView}>
+      <SafeAreaView
+        style={styles.container}
+        edges={["top", "bottom"]}
+        onLayout={onLayoutRootView}
+      >
         <View style={styles.content}>
           <InfoHeader />
           <InfoCard data={list} />
@@ -41,7 +70,6 @@ export default function App() {
     </SafeAreaProvider>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -55,4 +83,3 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 });
-
