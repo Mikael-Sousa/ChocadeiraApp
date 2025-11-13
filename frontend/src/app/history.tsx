@@ -4,8 +4,9 @@ import { View, StyleSheet } from "react-native";
 import { useFonts, Inter_400Regular, Inter_700Bold } from "@expo-google-fonts/inter";
 import * as SplashScreen from "expo-splash-screen";
 import Navbar from "../components/Navbar";
-import InfoCard, { Item } from "../components/InfoCard";
 import InfoHeader from "../components/InfoHeader";
+import InfoCard, { Item } from "../components/InfoCard";
+import { COLORS } from "../theme/styles";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -23,35 +24,36 @@ export default function App() {
 
   const list: Item[] = [
     {
-      icon: "clock-outline",
-      title: "Tempo Ligado",
+      icon: "calendar-month-outline",
+      title: "06/01/2026",
       status: "",
       hiddenStatus: "02:00",
     },
     {
-      icon: "egg-outline",
-      title: "Tempo p/ Eclosão",
+      icon: "calendar-month-outline",
+      title: "05/01/2026",
       status: "",
       hiddenStatus: "20 dias",
     },
     {
-      icon: "sync",
-      title: "Giros Diários",
+      icon: "calendar-month-outline",
+      title: "04/01/2026",
       status: "",
       hiddenStatus: "6/dia",
     },
     {
-      icon: "door-open",
-      title: "Estado da Porta",
+      icon: "calendar-month-outline",
+      title: "03/01/2026",
       status: "",
       hiddenStatus: "Aberta",
     },
     {
       icon: "calendar-month-outline",
-      title: "Data Prevista",
+      title: "02/01/2026",
       status: "",
       hiddenStatus: "01/01/2026",
     },
+    
   ];
 
   return (
@@ -62,8 +64,8 @@ export default function App() {
         onLayout={onLayoutRootView}
       >
         <View style={styles.content}>
-          <InfoHeader />
-          <InfoCard data={list} />
+          <InfoHeader icon="history" title="Historico" />
+          <InfoCard data={list} showModal={false} />
           <Navbar />
         </View>
       </SafeAreaView>
@@ -74,7 +76,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: COLORS.backgroundMain,
   },
   content: {
     flex: 1,

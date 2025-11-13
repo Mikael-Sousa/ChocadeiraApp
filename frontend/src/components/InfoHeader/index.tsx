@@ -2,11 +2,16 @@ import { View, Text } from "react-native";
 import { styles } from "./styles";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-export default function App() {
+type Props = {
+  title: string;
+  icon: React.ComponentProps<typeof MaterialCommunityIcons>["name"];
+};
+
+export default function App({ title, icon }: Props) {
   return (
     <View style={styles.container}>
-      <MaterialCommunityIcons name="chart-box-outline" style={styles.icon} />
-      <Text style={styles.title}>Dados Gerais</Text>
+      <MaterialCommunityIcons name={icon} style={styles.icon} />
+      <Text style={styles.title}>{title}</Text>
     </View>
   );
 }

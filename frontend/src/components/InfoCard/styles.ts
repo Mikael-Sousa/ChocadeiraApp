@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
         paddingVertical: 10,
         justifyContent: "space-between",
         width: "100%",
-        bottom: 60,
+        bottom: 20,
     },
     content: {
         flexDirection: "row",

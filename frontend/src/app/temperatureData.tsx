@@ -6,6 +6,7 @@ import * as SplashScreen from "expo-splash-screen";
 import Navbar from "../components/Navbar";
 import InfoCard, { Item } from "../components/InfoCard";
 import StatusHeader from "../components/StatusHeader";
+import { COLORS } from "../theme/styles";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -23,7 +24,7 @@ export default function App() {
 
   const list: Item[] = [
     { icon: "thermometer", title: "Umidade", status: "37,5 °C", hiddenStatus: "" },
-    { icon: "water", title: "Temp. da Agua", status: "45%", hiddenStatus: "" },
+    { icon: "water", title: "Temp. da Agua", status: "37,2 °C", hiddenStatus: "" },
     { icon: "weather-windy", title: "Temp. do Ar", status: "37,2 °C", hiddenStatus: "" },
   ];
 
@@ -36,7 +37,7 @@ export default function App() {
       >
         <View style={styles.content}>
           <StatusHeader />
-          <InfoCard data={list} />
+          <InfoCard data={list} showModal={false}/>
           <Navbar />
         </View>
       </SafeAreaView>
@@ -47,7 +48,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: COLORS.backgroundMain,
   },
   content: {
     flex: 1,

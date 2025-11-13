@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Pressable } from "react-native";
+import { View, Text, Pressable, ScrollView } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { styles } from "./styles";
 import AppModal from "../Modal";
@@ -23,21 +23,24 @@ export type Item = {
 
 type Props = {
   data: Item[];
+  showModal: boolean;
 };
 
-export default function InfoCard({ data }: Props) {
+export default function InfoCard({ data, showModal }: Props) {
   const [visible, setVisible] = useState(false);
   const [selectedItem, setSelectedItem] = useState<number>(0);
 
-  return (
-    <View style={styles.container}>
+  const contentList = (
+    <>
       {data.map((item, index) => (
         <Pressable
           style={styles.content}
           key={index}
           onPress={() => {
-            setVisible(true);
-            setSelectedItem(index);
+            if (showModal) {
+              setVisible(true);
+              setSelectedItem(index);
+            }
           }}
         >
           <MaterialCommunityIcons name={item.icon} style={styles.icon} />
@@ -45,6 +48,17 @@ export default function InfoCard({ data }: Props) {
           <Text style={styles.status}>{item.status}</Text>
         </Pressable>
       ))}
+    </>
+  );
+
+  return (
+    <View style={[styles.container, { flex: 1 }]}>
+      {data.length >= 6 ? (
+        <ScrollView>{contentList}</ScrollView>
+      ) : (
+        <>{contentList}</>
+      )}
+
       <AppModal
         visible={visible}
         setVisible={setVisible}

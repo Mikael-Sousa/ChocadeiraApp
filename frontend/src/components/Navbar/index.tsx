@@ -21,9 +21,9 @@ export default function Navbar() {
 
   const list: Item[] = [
     { icon: "home", route: "/" },
-    { icon: "chart-bar", route: "/search" },
-    { icon: "thermometer", route: "/settings" },
-    { icon: "history", route: "/notifications" },
+    { icon: "chart-bar", route: "/statistics" },
+    { icon: "thermometer", route: "/temperatureData" },
+    { icon: "history", route: "/history" },
     { icon: "account", route: "/profile" },
   ];
 
