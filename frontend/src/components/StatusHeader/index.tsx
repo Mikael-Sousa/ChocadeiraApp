@@ -1,4 +1,3 @@
-import { Ionicons } from "@expo/vector-icons";
 import * as SystemUI from "expo-system-ui";
 import { useEffect } from "react";
 import { Text, View } from "react-native";
@@ -7,21 +6,21 @@ import ChartCard from "../ChartCard";
 import { styles } from "./styles";
 
 type Props = {
+    title: string;
     indexSelected: number;
     setIndexSelected: React.Dispatch<React.SetStateAction<number>>;
     data: number[][];
 };
 
 
-export default function App({ indexSelected, setIndexSelected, data }: Props) {
+export default function App({ indexSelected, setIndexSelected, data, title}: Props) {
     useEffect(() => {
         SystemUI.setBackgroundColorAsync("#121212");
     }, []);
     return (
         <View style={styles.container}>
             <View style={styles.content1}>
-                <Ionicons name="checkmark-circle" style={styles.icon} />
-                <Text style={styles.title}>Tudo certo</Text>
+                <Text style={styles.title}>{title}</Text>
             </View>
             <View style={styles.content2}>
                 <ArrowButton title="left" setIndexSelected={setIndexSelected} />
