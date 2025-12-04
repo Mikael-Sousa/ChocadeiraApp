@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { View, Text, Pressable, ScrollView } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { styles } from "./styles";
+import React, { useState } from "react";
+import { Pressable, ScrollView, Text, View } from "react-native";
 import AppModal from "../Modal";
+import { styles } from "./styles";
 
 export type IconName =
   | "thermometer"
@@ -12,7 +12,11 @@ export type IconName =
   | "sync"
   | "door-open"
   | "calendar-month-outline"
-  | "weather-windy";
+  | "weather-windy"
+  | "bluetooth"
+  | "wifi"
+  | "numeric"
+  | "view-dashboard-outline";
 
 export type Item = {
   icon: IconName;
@@ -24,9 +28,10 @@ export type Item = {
 type Props = {
   data: Item[];
   showModal: boolean;
+  title: string;
 };
 
-export default function InfoCard({ data, showModal }: Props) {
+export default function InfoCard({ data, showModal, title }: Props) {
   const [visible, setVisible] = useState(false);
   const [selectedItem, setSelectedItem] = useState<number>(0);
 
@@ -53,6 +58,7 @@ export default function InfoCard({ data, showModal }: Props) {
 
   return (
     <View style={[styles.container, { flex: 1 }]}>
+      <Text style={styles.title}>{title}</Text>
       {data.length >= 6 ? (
         <ScrollView>{contentList}</ScrollView>
       ) : (

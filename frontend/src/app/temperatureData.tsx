@@ -1,10 +1,10 @@
-import React, { useCallback } from "react";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import { View, StyleSheet } from "react-native";
-import { useFonts, Inter_400Regular, Inter_700Bold } from "@expo-google-fonts/inter";
+import { Inter_400Regular, Inter_700Bold, useFonts } from "@expo-google-fonts/inter";
 import * as SplashScreen from "expo-splash-screen";
-import Navbar from "../components/Navbar";
+import React, { useCallback } from "react";
+import { StyleSheet, View } from "react-native";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import InfoCard, { Item } from "../components/InfoCard";
+import Navbar from "../components/Navbar";
 import StatusHeader from "../components/StatusHeader";
 import { COLORS } from "../theme/styles";
 
@@ -37,7 +37,7 @@ export default function App() {
       >
         <View style={styles.content}>
           <StatusHeader />
-          <InfoCard data={list} showModal={false}/>
+          <InfoCard data={list} showModal={false} title={""} />
           <Navbar />
         </View>
       </SafeAreaView>

@@ -65,7 +65,7 @@ export default function App() {
       >
         <View style={styles.content}>
           <InfoHeader icon="history" title="Historico" />
-          <InfoCard data={list} showModal={false} />
+          <InfoCard data={list} showModal={false} title={""}/>
           <Navbar />
         </View>
       </SafeAreaView>
