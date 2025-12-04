@@ -1,6 +1,6 @@
-import { View, Text } from "react-native";
-import { styles } from "./styles";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Text, View } from "react-native";
+import { styles } from "./styles";
 
 type Props = {
   title: string;

@@ -1,15 +1,20 @@
 import React from "react";
 import { View } from "react-native";
 import { LineChart } from "react-native-chart-kit";
-import { styles, chartProps } from "./styles";
+import { chartProps, styles } from "./styles";
 
-export default function ChartCard() {
+type Props = {
+  indexSelected: number;
+  data: number[][];
+};
+
+export default function ChartCard({ indexSelected, data }: Props) {
   return (
     <View style={styles.container}>
       <LineChart
         data={{
-          labels: ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"],
-          datasets: [{ data: [36.5, 37.0, 37.2, 37.5, 37.4, 37.8] }],
+          labels: ["1", "2", "3", "4", "5"],
+          datasets: [{ data: data[indexSelected] }],
         }}
         {...chartProps}
         style={styles.chart}

@@ -1,13 +1,19 @@
-import { View, Text } from "react-native";
-import { styles } from "./styles";
-import ChartCard from "../ChartCard";
 import { Ionicons } from "@expo/vector-icons";
-import ArrowButton from "../ArrowButton";
-import { useEffect } from "react";
 import * as SystemUI from "expo-system-ui";
+import { useEffect } from "react";
+import { Text, View } from "react-native";
+import ArrowButton from "../ArrowButton";
+import ChartCard from "../ChartCard";
+import { styles } from "./styles";
+
+type Props = {
+    indexSelected: number;
+    setIndexSelected: React.Dispatch<React.SetStateAction<number>>;
+    data: number[][];
+};
 
 
-export default function App() {
+export default function App({ indexSelected, setIndexSelected, data }: Props) {
     useEffect(() => {
         SystemUI.setBackgroundColorAsync("#121212");
     }, []);
@@ -18,9 +24,9 @@ export default function App() {
                 <Text style={styles.title}>Tudo certo</Text>
             </View>
             <View style={styles.content2}>
-                <ArrowButton title="left" />
-                <ChartCard />
-                <ArrowButton title="right" />
+                <ArrowButton title="left" setIndexSelected={setIndexSelected} />
+                <ChartCard indexSelected={indexSelected} data={data}/>
+                <ArrowButton title="right" setIndexSelected={setIndexSelected} />
             </View>
         </View>
     );

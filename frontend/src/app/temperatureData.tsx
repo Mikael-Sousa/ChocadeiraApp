@@ -1,6 +1,6 @@
 import { Inter_400Regular, Inter_700Bold, useFonts } from "@expo-google-fonts/inter";
 import * as SplashScreen from "expo-splash-screen";
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import InfoCard, { Item } from "../components/InfoCard";
@@ -11,6 +11,8 @@ import { COLORS } from "../theme/styles";
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
+  const [indexSelected, setIndexSelected] = useState(0)
+
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
     Inter_700Bold,
@@ -22,11 +24,33 @@ export default function App() {
 
   if (!fontsLoaded) return null;
 
+  const dataTemp = [
+  [36.5, 37.0, 37.2, 37.5, 37.4], // humidityTemp
+  [32.5, 37.0, 39.2, 47.5, 51.4], // waterTemp
+  [32.5, 37.0, 39.2, 39.5, 77.4], // airTemp
+];
+
   const list: Item[] = [
-    { icon: "thermometer", title: "Umidade", status: "37,5 °C", hiddenStatus: "" },
-    { icon: "water", title: "Temp. da Agua", status: "37,2 °C", hiddenStatus: "" },
-    { icon: "weather-windy", title: "Temp. do Ar", status: "37,2 °C", hiddenStatus: "" },
-  ];
+  { 
+    icon: "thermometer", 
+    title: "Umidade", 
+    status: `${dataTemp[0][4]} °C`,
+    hiddenStatus: "" 
+  },
+  { 
+    icon: "water", 
+    title: "Temp. da Agua", 
+    status: `${dataTemp[1][4]} °C`,
+    hiddenStatus: "" 
+  },
+  { 
+    icon: "weather-windy", 
+    title: "Temp. do Ar", 
+    status: `${dataTemp[2][4]} °C`,
+    hiddenStatus: "" 
+  },
+];
+
 
   return (
     <SafeAreaProvider>
@@ -36,7 +60,7 @@ export default function App() {
         onLayout={onLayoutRootView}
       >
         <View style={styles.content}>
-          <StatusHeader />
+          <StatusHeader indexSelected={indexSelected} setIndexSelected={setIndexSelected} data={dataTemp}/>
           <InfoCard data={list} showModal={false} title={""} />
           <Navbar />
         </View>
