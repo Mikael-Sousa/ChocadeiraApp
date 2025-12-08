@@ -1,42 +1,47 @@
+import { FONTS } from "@/src/theme/styles";
 import { StyleSheet } from "react-native";
-import { COLORS, FONTS } from "@/src/theme/styles";
 
-export const styles = StyleSheet.create({
+export function createStyles(theme: any) {
+  return StyleSheet.create({
     container: {
-        paddingVertical: 60,
-        margin: 10,
-        gap: 20,
-        borderRadius: 14,
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: COLORS.background,
-        width: "100%",
+      paddingVertical: 40,
+      margin: 5,
+      zIndex: 2,
+      gap: 20,
+      borderRadius: 14,
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: theme.background,
+      width: "100%",
+      borderWidth: 2,
+      borderColor: theme.primary,
     },
 
     title: {
-        color: COLORS.primary,
-        fontSize: FONTS.fontSize2,
-        fontFamily: FONTS.fontMain
+      color: theme.primary,
+      fontSize: FONTS.fontSize2,
+      fontFamily: FONTS.fontMain,
     },
 
     icon: {
-        fontSize: FONTS.fontSize3,
-        color: COLORS.primary,
+      fontSize: FONTS.fontSize3,
+      color: theme.primary,
     },
 
     content1: {
-        flexDirection: "row",        
-        alignItems: "center",       
-        justifyContent: "center",
-        width: "100%",               
-        backgroundColor: COLORS.background,
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "center",
+      width: "100%",
+      backgroundColor: theme.background,
     },
 
     content2: {
-        flexDirection: "row",        // 🔹 coloca os itens lado a lado
-        alignItems: "center",        // 🔹 centraliza verticalmente
-        justifyContent: "space-evenly",
-        width: "100%",               // 🔹 garante que ocupe toda a largura
-        backgroundColor: COLORS.background,
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-evenly",
+      width: "100%",
+      backgroundColor: theme.background,
     },
-});
+  });
+}

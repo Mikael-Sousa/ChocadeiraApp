@@ -4,9 +4,7 @@ import React, { useCallback, useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import InfoCard, { Item } from "../components/InfoCard";
-import Navbar from "../components/Navbar";
 import StatusHeader from "../components/StatusHeader";
-import { COLORS } from "../theme/styles";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -65,8 +63,7 @@ export default function App() {
             indexSelected={indexSelected}
             setIndexSelected={setIndexSelected}
             data={dataTemp} />
-          <InfoCard data={list} showModal={false} title={""} />
-          <Navbar />
+          <InfoCard data={list} showModal={false} showMenu={false} title={""} />
         </View>
       </SafeAreaView>
     </SafeAreaProvider>
@@ -76,7 +73,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.backgroundMain,
   },
   content: {
     flex: 1,

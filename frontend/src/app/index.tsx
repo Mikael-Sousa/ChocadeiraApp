@@ -5,7 +5,6 @@ import { StyleSheet, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import InfoCard, { Item } from "../components/InfoCard";
 import InfoHeader from '../components/InfoHeader';
-import Navbar from "../components/Navbar";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -49,10 +48,9 @@ export default function App() {
     <SafeAreaProvider>
       <SafeAreaView style={styles.container} edges={["top", "bottom"]} onLayout={onLayoutRootView}>
         <View style={styles.content}>
-          <InfoHeader icon="egg-outline" title="Chokedex" />
-          <InfoCard data={listConnection} showModal={false} title={"Conexão"} />
-          <InfoCard data={listCurrences} showModal={true} title={"Ultima conexão"} />
-          <Navbar />
+          <InfoHeader title="Chokedex" />
+          <InfoCard data={listConnection} showModal={false} showMenu={false} title={"Conexão"} />
+          <InfoCard data={listCurrences} showModal={true} showMenu={false} title={"Ultima conexão"} />
         </View>
       </SafeAreaView>
     </SafeAreaProvider>
@@ -62,7 +60,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#222",
   },
   content: {
     flex: 1,

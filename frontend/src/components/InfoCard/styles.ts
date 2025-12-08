@@ -1,40 +1,48 @@
+import { FONTS } from "@/src/theme/styles";
 import { StyleSheet } from "react-native";
-import { COLORS, FONTS } from "@/src/theme/styles";
 
-export const styles = StyleSheet.create({
+export function createStyles(theme: {
+  primary: string;
+  secondary: string;
+  backgroundMain: string;
+  background: string;
+}) {
+  return StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: COLORS.backgroundMain,
-        paddingHorizontal: 20,
-        paddingVertical: 10,
-        justifyContent: "space-between",
-        width: "100%",
-        bottom: 20,
+      flex: 1,
+      backgroundColor: theme.backgroundMain,
+      paddingHorizontal: 20,
+      paddingVertical: 10,
+      justifyContent: "space-between",
+      width: "100%",
+      bottom: 20,
     },
     content: {
-        flexDirection: "row",
-        padding: 20,
-        borderRadius: 8,
-        alignItems: "center",
-        flex: 1,
-        marginVertical: 5,
-        backgroundColor: COLORS.background,
-        justifyContent: "space-between",
-        fontFamily: FONTS.fontMain,
+      flexDirection: "row",
+      padding: 20,
+      borderRadius: 8,
+      alignItems: "center",
+      flex: 1,
+      marginVertical: 5,
+      backgroundColor: theme.background,
+      justifyContent: "space-between",
+      fontFamily: FONTS.fontMain,
+      borderColor: theme.primary,
+      borderWidth: 2,
     },
     icon: {
-        fontSize: 28,
-        color: COLORS.primary,
+      fontSize: 28,
+      color: theme.primary,
     },
     title: {
-        color: COLORS.primary,
-        fontFamily: FONTS.fontMain,
-        fontSize: FONTS.fontSize1,
+      color: theme.primary,
+      fontFamily: FONTS.fontMain,
+      fontSize: FONTS.fontSize1,
     },
-
     status: {
-        color: COLORS.primary,
-        fontFamily: FONTS.fontMain,
-        fontSize: FONTS.fontSize1,
+      color: theme.primary,
+      fontFamily: FONTS.fontMain,
+      fontSize: FONTS.fontSize1,
     },
-});
+  });
+}

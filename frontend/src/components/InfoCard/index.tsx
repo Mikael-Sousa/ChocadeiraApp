@@ -1,8 +1,10 @@
+import { useTheme } from "@/src/theme/useTheme";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import React, { useState } from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
+import MenuModal from "../Menu";
 import AppModal from "../Modal";
-import { styles } from "./styles";
+import { createStyles } from "./styles";
 
 export type IconName =
   | "thermometer"
@@ -11,12 +13,23 @@ export type IconName =
   | "clock-outline"
   | "sync"
   | "door-open"
+  | "calendar"
   | "calendar-month-outline"
+  | "calendar-month"
+  | "calendar-week"
+  | "calendar-week-outline"
+  | "calendar-today"
+  | "calendar-today-outline"
   | "weather-windy"
   | "bluetooth"
   | "wifi"
   | "numeric"
-  | "view-dashboard-outline";
+  | "view-dashboard-outline"
+  | "theme-light-dark"
+  | "bell-outline"
+  | "translate"
+  | "account-cog-outline"
+  | "information-outline";
 
 export type Item = {
   icon: IconName;
@@ -28,12 +41,17 @@ export type Item = {
 type Props = {
   data: Item[];
   showModal: boolean;
+  showMenu: boolean;
   title: string;
 };
 
-export default function InfoCard({ data, showModal, title }: Props) {
+export default function InfoCard({ data, showModal, title, showMenu }: Props) {
   const [visible, setVisible] = useState(false);
+  const [menuVisible, setMenuVisible] = useState(false);
   const [selectedItem, setSelectedItem] = useState<number>(0);
+
+  const { theme } = useTheme(); 
+  const styles = createStyles(theme); 
 
   const contentList = (
     <>
@@ -43,8 +61,14 @@ export default function InfoCard({ data, showModal, title }: Props) {
           key={index}
           onPress={() => {
             if (showModal) {
-              setVisible(true);
               setSelectedItem(index);
+              setVisible(true);
+              return;
+            }
+
+            if (showMenu && item.title === "Tema") {
+              setMenuVisible(true);
+              return;
             }
           }}
         >
@@ -59,7 +83,8 @@ export default function InfoCard({ data, showModal, title }: Props) {
   return (
     <View style={[styles.container, { flex: 1 }]}>
       <Text style={styles.title}>{title}</Text>
-      {data.length >= 6 ? (
+
+      {data.length >= 4 ? (
         <ScrollView>{contentList}</ScrollView>
       ) : (
         <>{contentList}</>
@@ -71,6 +96,8 @@ export default function InfoCard({ data, showModal, title }: Props) {
         data={data}
         selectedItem={selectedItem}
       />
+
+      <MenuModal visible={menuVisible} setVisible={setMenuVisible} />
     </View>
   );
 }

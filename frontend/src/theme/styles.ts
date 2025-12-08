@@ -1,10 +1,3 @@
-export const COLORS = {
-  primary: "#dadadaff",
-  secondary: "#6c757d",
-  backgroundMain: "#000000ff",
-  background: "#222222ff",
-};
-
 export const FONTS = {
  fontMain: "Inter_700Bold", 
  fontSize1: 20,
@@ -17,3 +10,4 @@ export const SIZES = {
   margin: 10,
   icon: 28,
 };
+

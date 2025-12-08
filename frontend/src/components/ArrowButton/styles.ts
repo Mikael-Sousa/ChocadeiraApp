@@ -1,26 +1,29 @@
+import { FONTS } from "@/src/theme/styles";
 import { StyleSheet } from "react-native";
-import { COLORS, FONTS } from "@/src/theme/styles";
 
-export const styles = StyleSheet.create({
+export function createStyles(theme: any) {
+  return StyleSheet.create({
     container: {
-        flex: 1, 
-        justifyContent: "center", 
-        alignItems: "center"
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
     },
 
     btn: {
-        backgroundColor: COLORS.background,
-        paddingVertical: 8,
-        paddingHorizontal: 8,
-        borderRadius: 8,
-        borderColor: COLORS.primary,
-        borderWidth: 2
+      backgroundColor: theme.background,
+      paddingVertical: 8,
+      paddingHorizontal: 14,
+      borderRadius: 16,
+      borderColor: theme.primary,
+      borderWidth: 2,
+      justifyContent: "center",
+      alignItems: "center",
     },
 
     title: {
-        color: COLORS.primary,
-        fontSize: FONTS.fontSize1,
-        fontFamily: FONTS.fontMain
+      color: theme.primary,
+      fontSize: FONTS.fontSize1,
+      fontFamily: FONTS.fontMain,
     },
-
-});
+  });
+}

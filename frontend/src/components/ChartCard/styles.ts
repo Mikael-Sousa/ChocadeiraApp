@@ -1,35 +1,33 @@
-// src/components/ChartCard/styles.ts
-import { StyleSheet, Dimensions } from "react-native";
-import { COLORS } from "@/src/theme/styles";
+import { FONTS } from "@/src/theme/styles";
+import { Dimensions, StyleSheet } from "react-native";
 
 const screenWidth = Dimensions.get("window").width;
 
-export const styles = StyleSheet.create({
-  container: {
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: COLORS.backgroundMain,
-    borderRadius: 14,
+export const createStyles = (theme: any) =>
+  StyleSheet.create({
+    container: {
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: theme.backgroundMain,
+      marginVertical: 8,
+      width: "60%",
+      alignSelf: "center",
+    },
 
-    marginVertical: 8,
-    width: "60%",
-    alignSelf: "center",
-    elevation: 5,
-  },
+    title: {
+      color: theme.primary,
+      fontSize: 16,
+      marginBottom: 6,
+      fontWeight: "bold",
+      fontFamily: FONTS.fontMain,
+    },
 
-  title: {
-    color: COLORS.primary,
-    fontSize: 16,
-    marginBottom: 6,
-    fontWeight: "bold",
-  },
+    chart: {
+      borderRadius: 0,
+    },
+  });
 
-  chart: {
-    borderRadius: 12,
-  },
-});
-
-export const chartProps = {
+export const chartProps = (theme: any) => ({
   width: screenWidth * 0.6,
   height: 80,
   withDots: true,
@@ -38,19 +36,19 @@ export const chartProps = {
   withShadow: false,
   bezier: true,
   chartConfig: {
-    backgroundColor: COLORS.background,
-    backgroundGradientFrom: COLORS.background,
-    backgroundGradientTo: COLORS.background,
+    backgroundColor: theme.background,
+    backgroundGradientFrom: theme.background,
+    backgroundGradientTo: theme.background,
     decimalPlaces: 1,
-    color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-    labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity * 0.8})`,
+    color: () => theme.primary,
+    labelColor: () => theme.primary,
     propsForDots: {
       r: "4",
       strokeWidth: "2",
-      stroke: COLORS.secondary,
+      stroke: theme.secondary,
     },
     propsForBackgroundLines: {
-      strokeDasharray: "", // remove tracejado
+      strokeDasharray: "",
     },
   },
-};
+});

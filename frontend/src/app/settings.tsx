@@ -22,36 +22,35 @@ export default function App() {
 
   const list: Item[] = [
     {
-      icon: "clock-outline",
-      title: "Tempo Ligado",
+      icon: "theme-light-dark",
+      title: "Tema",
       status: "",
       hiddenStatus: "02:00",
     },
     {
-      icon: "egg-outline",
-      title: "Tempo p/ Eclosão",
+      icon: "bell-outline",
+      title: "Notificações",
       status: "",
-      hiddenStatus: "20 dias",
+      hiddenStatus: "02:00",
     },
     {
-      icon: "sync",
-      title: "Giros Diários",
+      icon: "translate",
+      title: "Idioma",
       status: "",
-      hiddenStatus: "6 giros p/dia",
+      hiddenStatus: "02:00",
     },
     {
-      icon: "door-open",
-      title: "Estado da Porta",
+      icon: "account-cog-outline",
+      title: "Conta",
       status: "",
-      hiddenStatus: "Aberta",
+      hiddenStatus: "02:00",
     },
     {
-      icon: "calendar-month-outline",
-      title: "Data Prevista",
+      icon: "information-outline",
+      title: "Sobre",
       status: "",
-      hiddenStatus: "01/01/2026",
+      hiddenStatus: "02:00",
     },
-    
   ];
 
   return (
@@ -62,8 +61,8 @@ export default function App() {
         onLayout={onLayoutRootView}
       >
         <View style={styles.content}>
-          <InfoHeader icon={"chart-box-outline"} title={"Dados Gerais"}/>
-          <InfoCard data={list} showModal={true} showMenu={false} title={""} />
+          <InfoHeader icon="cog" title="Configurações" />
+          <InfoCard data={list} showModal={false} showMenu={true} title={""}/>
         </View>
       </SafeAreaView>
     </SafeAreaProvider>

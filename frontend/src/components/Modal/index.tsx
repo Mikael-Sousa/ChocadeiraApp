@@ -1,9 +1,8 @@
-import React from "react";
-import { Modal, View, Text, Pressable } from "react-native";
+import { useTheme } from "@/src/theme/useTheme";
 import { Ionicons } from "@expo/vector-icons";
-import { styles } from "./styles";
-
-
+import React from "react";
+import { Modal, Pressable, Text, View } from "react-native";
+import { createStyles } from "./styles";
 export type Item = {
   title: string;
   status: string;
@@ -18,6 +17,9 @@ type Props = {
 };
 
 export default function AppModal({ visible, setVisible, data, selectedItem }: Props) {
+  const { theme } = useTheme(); 
+  const styles = createStyles(theme);
+
   return (
     <View style={styles.container}>
       <Modal
@@ -30,7 +32,6 @@ export default function AppModal({ visible, setVisible, data, selectedItem }: Pr
           <View style={styles.modalView}>
             <Text style={styles.modalTitle}>{data[selectedItem].title}</Text>
             <Text style={styles.modalValue}>{data[selectedItem].hiddenStatus}</Text>
-            <Text style={styles.modalValue}>{data[selectedItem].status}</Text>
             <Pressable style={styles.closeButton} onPress={() => setVisible(false)}>
               <Ionicons name="close" style={styles.icon} />
             </Pressable>

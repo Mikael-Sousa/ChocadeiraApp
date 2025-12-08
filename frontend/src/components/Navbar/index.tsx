@@ -1,18 +1,26 @@
-import React from "react";
-import { View, Pressable } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { styles } from "./styles";
 import { Href, useRouter } from "expo-router";
+import React from "react";
+import { Pressable, View } from "react-native";
+import { createStyles } from "./styles";
 
-export default function Navbar() {
+type Theme = {
+  primary: string;
+  secondary: string;
+  backgroundMain: string;
+  background: string;
+};
+
+type Props = {
+  theme: Theme;
+  toggleTheme: () => void;
+};
+
+export default function Navbar({ theme, toggleTheme }: Props) {
   const router = useRouter();
+  const styles = createStyles(theme);
 
-  type IconName =
-    | "home"
-    | "chart-bar"
-    | "thermometer"
-    | "history"
-    | "account";
+  type IconName = "home" | "chart-bar" | "thermometer" | "history" | "cog";
 
   type Item = {
     icon: IconName;
@@ -24,17 +32,14 @@ export default function Navbar() {
     { icon: "chart-bar", route: "/statistics" },
     { icon: "thermometer", route: "/temperatureData" },
     { icon: "history", route: "/history" },
-    { icon: "account", route: "/profile" },
+    { icon: "cog", route: "/settings" },
   ];
 
   return (
     <View style={styles.navbar}>
       {list.map((item, index) => (
         <Pressable key={index} onPress={() => router.push(item.route)}>
-          <MaterialCommunityIcons
-            name={item.icon}
-            style={styles.icon}
-          />
+          <MaterialCommunityIcons name={item.icon} style={styles.icon} />
         </Pressable>
       ))}
     </View>

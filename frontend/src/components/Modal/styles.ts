@@ -1,56 +1,60 @@
-import { COLORS } from "@/src/theme/styles";
 import { StyleSheet } from "react-native";
 
-export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-
-  overlay: {
-    flex: 1,
-    backgroundColor: "rgba(0, 0, 0, 0.4)",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-
-  modalView: {
-    width: "80%",
-    backgroundColor: "#fff",
-    borderRadius: 16,
-    paddingVertical: 24,
-    paddingHorizontal: 20,
-    alignItems: "center",
-    justifyContent: "center",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.25,
-    shadowRadius: 5,
-    elevation: 5,
-  },
-
-  modalTitle: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: "#333",
-    marginBottom: 8,
-  },
-
-  modalValue: {
-    fontSize: 28,
-    fontWeight: "600",
-    color: "#444",
-  },
-
-  closeButton: {
-    marginTop: 15,
-    backgroundColor: COLORS.background,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 10,
-  },
-
-  icon: {
-        fontSize: 28,
-        color: COLORS.primary,
+export function createStyles(theme: any) {
+  return StyleSheet.create({
+    container: {
+      flex: 1,
     },
-});
+
+    overlay: {
+      flex: 1,
+      backgroundColor: "rgba(0, 0, 0, 0.55)",
+      justifyContent: "center",
+      alignItems: "center",
+      paddingHorizontal: 20,
+    },
+
+    modalView: {
+      width: "100%",
+      maxWidth: 360,
+      backgroundColor: theme.background,
+      borderRadius: 22,
+      paddingVertical: 32,
+      paddingHorizontal: 26,
+      alignItems: "center",
+      gap: 14,
+      borderWidth: 6,
+      borderColor: theme.primary,
+    },
+
+    modalTitle: {
+      fontSize: 28,
+      fontWeight: "800",
+      color: theme.primary,
+      textAlign: "center",
+      marginBottom: 8,
+    },
+
+    modalValue: {
+      fontSize: 30,
+      fontWeight: "600",
+      color: theme.primary,
+      textAlign: "center",
+    },
+
+    closeButton: {
+      marginTop: 24,
+      backgroundColor: theme.background,
+      paddingVertical: 12,
+      paddingHorizontal: 30,
+      borderRadius: 12,
+      borderWidth: 4,
+      borderColor: theme.primary,
+    },
+
+    icon: {
+      fontSize: 28,
+      color: theme.primary,
+    },
+  });
+}
