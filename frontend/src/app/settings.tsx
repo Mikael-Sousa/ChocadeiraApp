@@ -62,7 +62,7 @@ export default function App() {
       >
         <View style={styles.content}>
           <InfoHeader icon="cog" title="Configurações" />
-          <InfoCard data={list} showModal={false} showMenu={true} title={""}/>
+          <InfoCard data={list} showModal={false} showMenu={true} title={""} />
         </View>
       </SafeAreaView>
     </SafeAreaProvider>

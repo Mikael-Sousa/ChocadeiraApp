@@ -22,16 +22,18 @@ export default function App() {
 
   const listConnection: Item[] = [
     {
-      icon: "bluetooth",  
-      title: "Bluetooth",
-      status: "",
-      hiddenStatus: "",
-    },
-    {
       icon: "wifi",      
       title: "Wi-Fi",
       status: "",
       hiddenStatus: "",
+      connection: true,
+    },
+    {
+      icon: "bluetooth",  
+      title: "Bluetooth",
+      status: "",
+      hiddenStatus: "",
+      connection: false,
     },
   ]
   const listCurrences: Item[] = [
@@ -43,14 +45,13 @@ export default function App() {
     }
   ];
 
-
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.container} edges={["top", "bottom"]} onLayout={onLayoutRootView}>
         <View style={styles.content}>
           <InfoHeader title="Chokedex" />
           <InfoCard data={listConnection} showModal={false} showMenu={false} title={"Conexão"} />
-          <InfoCard data={listCurrences} showModal={true} showMenu={false} title={"Ultima conexão"} />
+          <InfoCard data={listCurrences} showModal={true} showMenu={false} title={"Ultima conexão"} situations={[]}/>
         </View>
       </SafeAreaView>
     </SafeAreaProvider>

@@ -12,9 +12,8 @@ export function createStyles(theme: any) {
       backgroundColor: theme.background,
       borderTopWidth: 1,
       borderTopColor: theme.primary,
-      position: "absolute",
-      bottom: 35,
     },
+
 
     icon: {
       fontSize: FONTS.fontSize3,

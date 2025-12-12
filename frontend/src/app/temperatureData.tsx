@@ -25,8 +25,18 @@ export default function App() {
   const dataTemp = [
     [36.5, 37.0, 37.2, 37.5, 37.4], // humidityTemp
     [32.5, 37.0, 39.2, 47.5, 51.4], // waterTemp
-    [32.5, 37.0, 39.2, 39.5, 77.4], // airTemp
+    [32.5, 37.0, 39.2, 39.5, 23.4], // airTemp
   ];
+
+  const situations = dataTemp.map(row => {
+  const valor = row[4];
+  
+  if (valor > 42) return "red";
+  if (valor < 32) return "blue";
+  return "ok";
+});
+
+
 
   const list: Item[] = [
     {
@@ -63,7 +73,7 @@ export default function App() {
             indexSelected={indexSelected}
             setIndexSelected={setIndexSelected}
             data={dataTemp} />
-          <InfoCard data={list} showModal={false} showMenu={false} title={""} />
+          <InfoCard data={list} showModal={false} showMenu={false} title={""} situations={situations} />
         </View>
       </SafeAreaView>
     </SafeAreaProvider>
